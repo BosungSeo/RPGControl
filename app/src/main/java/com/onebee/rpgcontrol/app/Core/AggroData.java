@@ -9,13 +9,13 @@ public class AggroData {
         IUnit mUint;
         int mAggroValue;
 
-        public UnitAggroData(IUnit mUint, int mAggroValue) {
-            this.mUint = mUint;
+        public UnitAggroData(IUnit unit, int mAggroValue) {
+            this.mUint = unit;
             this.mAggroValue = mAggroValue;
         }
 
-        public void setUint(IUnit mUint) {
-            this.mUint = mUint;
+        public void setUint(IUnit unit) {
+            this.mUint = unit;
         }
 
         public void setAggroValue(int mAggroValue) {

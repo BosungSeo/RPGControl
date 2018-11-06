@@ -35,9 +35,9 @@ public abstract class Human implements IUnit {
     }
 
     @Override
-    public void doTurn(int dice) {
+    public void doTurn() {
         mAggroData.doTurn();
-        realTurn(dice);
+        innerTurn();
     }
-    abstract protected void realTurn(int dice);
+    abstract protected void innerTurn();
 }

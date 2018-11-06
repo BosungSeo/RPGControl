@@ -38,7 +38,7 @@ public class Skeleton extends Monster {
     }
 
     @Override
-    public void doTurn(int dice) {
+    public void doTurn() {
         // mbeHavior.attack(this, );
     }
 

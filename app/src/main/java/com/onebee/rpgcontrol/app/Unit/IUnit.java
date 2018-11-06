@@ -19,7 +19,7 @@ public interface IUnit {
 
     int getStamina();
 
-    void doTurn(int dice);
+    void doTurn();
 
     int getAttributeType();
 

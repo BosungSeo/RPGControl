@@ -15,7 +15,6 @@ import java.util.Random;
 
 
 public class EngineCore implements IUnitBehavior {
-    Random mRandomGenerator = new Random();
     ArrayList<IUnit> mMonsterUnitList = new ArrayList<>();
     ArrayList<IUnit> mHumanUnitList = new ArrayList<>();
     private Handler mMainHandler = new Handler() {
@@ -37,9 +36,9 @@ public class EngineCore implements IUnitBehavior {
     private void doTurn() {
         LogUtil.d("doTurn");
         for (IUnit u : mMonsterUnitList)
-            u.doTurn(mRandomGenerator.nextInt(10));
+            u.doTurn();
         for (IUnit u : mHumanUnitList)
-            u.doTurn(mRandomGenerator.nextInt(10));
+            u.doTurn();
     }
 
     @Override

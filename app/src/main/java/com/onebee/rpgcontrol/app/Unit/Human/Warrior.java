@@ -1,6 +1,7 @@
 package com.onebee.rpgcontrol.app.Unit.Human;
 
 import com.onebee.rpgcontrol.app.Core.AttackData;
+import com.onebee.rpgcontrol.app.Core.GameRandomGenerator;
 import com.onebee.rpgcontrol.app.Core.IUnitBehavior;
 import com.onebee.rpgcontrol.app.Unit.Equipment.IEquipment;
 import com.onebee.rpgcontrol.app.Unit.IUnit;
@@ -43,8 +44,7 @@ public class Warrior extends Human implements ISkill.ApproachSkillFeedBack {
     }
 
     @Override
-    public void realTurn(int dice) {
-        mCurrentDice = dice;
+    public void innerTurn() {
         mST = mST+5;
         if(mST >100)
             mST = 100;
@@ -85,8 +85,10 @@ public class Warrior extends Human implements ISkill.ApproachSkillFeedBack {
             totalEquipmentDamage += e.getDamage();
             totalCriticalRating +=e.getCriticalRating();
         }
+        if(totalCriticalRating-GameRandomGenerator.getInstance().getPercent()>0)
+            totalEquipmentDamage = totalEquipmentDamage*2;
         AttackData data = new AttackData();
-        data.setDamage(totalEquipmentDamage);
+        data.setDamage(totalEquipmentDamage+mAttactPoint);
         data.setType(0);
         data.setAggravationRating(aggravationRating);
         resultDamage = mUnitBehavior.attack(this, mAggroData.getTopAggroUnit(),data);
