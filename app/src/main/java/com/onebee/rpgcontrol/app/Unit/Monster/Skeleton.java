@@ -2,6 +2,7 @@ package com.onebee.rpgcontrol.app.Unit.Monster;
 
 import com.onebee.rpgcontrol.app.Core.IUnitBehavior;
 import com.onebee.rpgcontrol.app.Unit.IUnit;
+import java.util.ArrayList;
 
 public class Skeleton extends Monster {
     IUnitBehavior mbeHavior;
@@ -12,17 +13,12 @@ public class Skeleton extends Monster {
     }
 
     @Override
-    public void setDamage(int d) {
-
+    public int setDamage(int d) {
+        return 0;
     }
 
     @Override
     public void setHeal(int d) {
-
-    }
-
-    @Override
-    public void setTargetUnit(IUnit unit) {
 
     }
 
@@ -52,7 +48,12 @@ public class Skeleton extends Monster {
     }
 
     @Override
-    public void setBehaviorInterface(IUnitBehavior i) {
-        mbeHavior = i;
+    public void initialize() {
+
+    }
+
+    @Override
+    public void setEnemyList(ArrayList<IUnit> list) {
+
     }
 }

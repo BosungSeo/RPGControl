@@ -9,15 +9,11 @@ import com.onebee.rpgcontrol.app.Core.EngineCore;
 public class MainActivity extends AppCompatActivity {
     EngineCore mCore;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mCore = new EngineCore();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
     }
 }

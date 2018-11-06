@@ -43,7 +43,7 @@ public class EngineCore implements IUnitBehavior {
     }
 
     @Override
-    public int attack(IUnit a, IUnit d) {
+    public int attack(IUnit a, IUnit d, AttackData data) {
         return d.setDamage(a.getAttackPoint());
     }
 }

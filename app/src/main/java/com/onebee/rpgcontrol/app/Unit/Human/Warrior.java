@@ -87,7 +87,7 @@ public class Warrior extends Human implements ISkill.ApproachSkillFeedBack {
         }
         AttackData data = new AttackData();
         data.setDamage(totalEquipmentDamage);
-        data.setType();
+        data.setType(0);
         data.setAggravationRating(aggravationRating);
         resultDamage = mUnitBehavior.attack(this, mAggroData.getTopAggroUnit(),data);
         return resultDamage;
