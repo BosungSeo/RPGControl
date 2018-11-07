@@ -1,5 +1,6 @@
 package com.onebee.rpgcontrol.app.Unit.Skill;
 
+import com.onebee.rpgcontrol.app.LogUtil;
 import com.onebee.rpgcontrol.app.SkillEffect;
 
 public class DrainNormalAttack extends SkillStatus {
@@ -24,6 +25,7 @@ public class DrainNormalAttack extends SkillStatus {
 
     @Override
     protected void realUse() {
+        LogUtil.d();
         int realDamage = mFeedBack.attack(mInitSkillDamage, mInitSkillEffect, 10);
         mFeedBack.drainHP(realDamage / 10);
     }

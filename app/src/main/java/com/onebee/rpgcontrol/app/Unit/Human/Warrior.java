@@ -34,7 +34,8 @@ public class Warrior extends Human implements ISkill.ApproachSkillFeedBack {
     }
 
     @Override
-    public int setDamage(int d) {
+    public int setDamage(IUnit from, AttackData data) {
+        mAggroData.addAggroValue(from, data);
         return 0;
     }
 
@@ -93,5 +94,29 @@ public class Warrior extends Human implements ISkill.ApproachSkillFeedBack {
         data.setAggravationRating(aggravationRating);
         resultDamage = mUnitBehavior.attack(this, mAggroData.getTopAggroUnit(),data);
         return resultDamage;
+    }
+
+    @Override
+    public void alarmAllyAttack(IUnit from, IUnit to) {
+        if(to != this) {
+            // TODO : 도발 기술을 셋팅해서 시전한다., 기술 예약을 걸어둬야 한다.
+            // AttackData data = new AttackData();
+            // mUnitBehavior.attack(this, from,data);
+        }
+    }
+
+    @Override
+    public void alarmEnemyDeath(IUnit target) {
+        mAggroData.removeUnit(target);
+    }
+
+    @Override
+    public void alarmEnemyAdd(IUnit target) {
+        mAggroData.addUnit(target);
+    }
+
+    @Override
+    public void alarmEnemyHealing(IUnit from, IUnit to) {
+
     }
 }

@@ -51,13 +51,24 @@ public class AggroData {
             data.setAggroValue(value);
         }
     }
-    public void addAggroValue(IUnit unit, int value) {
-        for (UnitAggroData data : mList) {
-            if(data.getUint() == unit) {
-                data.addAggroValue(value);
+    public void addAggroValue(IUnit unit, AttackData data) {
+        int value = data.getDamage();
+        for (UnitAggroData d : mList) {
+            if(d.getUint() == unit) {
+                d.addAggroValue(value);
                 break;
             }
         }
+    }
+    public void removeUnit(IUnit unit) {
+        for (UnitAggroData d : mList) {
+            if(d.getUint() == unit) {
+                mList.remove(d);
+            }
+        }
+    }
+    public void addUnit(IUnit unit) {
+        mList.add(new UnitAggroData(unit, 0));
     }
     public IUnit getTopAggroUnit()
     {

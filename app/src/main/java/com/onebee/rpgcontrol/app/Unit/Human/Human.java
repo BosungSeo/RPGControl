@@ -7,6 +7,7 @@ import com.onebee.rpgcontrol.app.Unit.Skill.ISkill;
 import java.util.ArrayList;
 
 public abstract class Human implements IUnit {
+    public static final int HUMAN_CAMP_ID = 1;
     int mHP;
     int mMP;
     int mST;
@@ -17,6 +18,11 @@ public abstract class Human implements IUnit {
     @Override
     public int getHP() {
         return 0;
+    }
+
+    @Override
+    public int getUnitCamp() {
+        return HUMAN_CAMP_ID;
     }
 
     @Override
